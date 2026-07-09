@@ -7,7 +7,8 @@ import os
 st.title("📊 Data Overview")
 
 # path data
-DATA_PATH = "/kaggle/working/data/processed/train.csv"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DATA_PATH = os.path.join(BASE_DIR, "data", "processed", "train.csv")
 
 if not os.path.exists(DATA_PATH):
     st.error(f"File tidak ditemukan: {DATA_PATH}")

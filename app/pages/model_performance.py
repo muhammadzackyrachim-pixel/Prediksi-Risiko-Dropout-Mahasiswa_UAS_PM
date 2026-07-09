@@ -5,7 +5,8 @@ import pandas as pd
 
 st.title("📈 Model Performance")
 
-METRICS_PATH = "/kaggle/working/models/model_metrics.json"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+METRICS_PATH = os.path.join(BASE_DIR, "models", "model_metrics.json")
 
 if not os.path.exists(METRICS_PATH):
     st.error(f"File metrics tidak ditemukan: {METRICS_PATH}")

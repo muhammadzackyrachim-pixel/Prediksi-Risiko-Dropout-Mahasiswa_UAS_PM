@@ -6,7 +6,8 @@ import os
 st.title("🎯 Predict Output")
 st.write("Masukkan data mahasiswa untuk memprediksi risiko dropout.")
 
-MODEL_PATH = "/kaggle/working/models/full_pipeline.pkl"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+MODEL_PATH = os.path.join(BASE_DIR, "models", "best_model.pkl")
 
 if not os.path.exists(MODEL_PATH):
     st.error(f"Model tidak ditemukan: {MODEL_PATH}")
