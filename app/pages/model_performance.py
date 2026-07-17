@@ -21,16 +21,18 @@ st.write(metrics.get("model_name", "Tidak diketahui"))
 st.subheader("2. Hasil Evaluasi")
 col1, col2, col3 = st.columns(3)
 
+eval_metrics = metrics.get("metrics", {})
+
 with col1:
-    st.metric("Accuracy", f"{metrics.get('accuracy', 0):.4f}")
-    st.metric("Precision", f"{metrics.get('precision', 0):.4f}")
+    st.metric("Accuracy", f"{eval_metrics.get('accuracy', 0):.4f}")
+    st.metric("Precision", f"{eval_metrics.get('precision', 0):.4f}")
 
 with col2:
-    st.metric("Recall", f"{metrics.get('recall', 0):.4f}")
-    st.metric("F1 Score", f"{metrics.get('f1_score', 0):.4f}")
+    st.metric("Recall", f"{eval_metrics.get('recall', 0):.4f}")
+    st.metric("F1 Score", f"{eval_metrics.get('f1_score', 0):.4f}")
 
 with col3:
-    st.metric("ROC AUC", f"{metrics.get('roc_auc', 0):.4f}")
+    st.metric("ROC AUC", f"{eval_metrics.get('roc_auc', 0):.4f}")
 
 # optional jika classification report disimpan
 if "classification_report" in metrics:
